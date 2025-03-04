@@ -1,0 +1,661 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Roboto Mono', monospace;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #f0f0f0;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 10%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: #ff6666;
+    font-weight: 700;
+    transition: 0.4s ease;
+}
+
+.logo:hover {
+    color: #ff9999;
+    transform: scale(1.05);
+    text-shadow: 0 0 20px #ff6666;
+}
+
+nav a {
+    font-size: 2rem;
+    color: #f0f0f0;
+    margin-left: 5rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: #ff6666;
+    bottom: -10px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff6666;
+}
+/* Home Section */
+.home {
+    min-height: 100vh;
+    padding: 15rem 10% 5rem;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+    background: linear-gradient(to bottom, #121212, #1e1e1e);
+    position: relative;
+}
+
+.home-img img {
+    width: 30vw;
+    max-width: 400px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px #ff6666, 0 0 60px rgba(255, 102, 102, 0.3);
+    transition: 0.5s ease;
+    animation: float 4s ease-in-out infinite;
+}
+
+.home-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #ff6666, 0 0 80px rgba(255, 102, 102, 0.5);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.home-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+.home-content h1 span {
+    color: #ff6666;
+    text-shadow: 0 0 15px #ff6666;
+    margin-left: 1rem;
+}
+
+.home-content h3 {
+    font-size: 4.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #f0f0f0; /* Base color for "I'm a" */
+    display: flex;
+    align-items: center;
+}
+
+.home-content h3 span {
+    color: #00ffcc; /* Neon cyan */
+    text-shadow: 0 0 10px #00ffcc;
+    display: inline-block; /* Required for transform animations */
+    overflow: hidden; /* Ensures clean clipping during animation */
+    white-space: nowrap; /* Keeps text on one line */
+}
+
+.home-content p {
+    font-size: 2rem;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: transparent;
+    border: 0.2rem solid #ff6666;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    margin: 3rem 2rem 3rem 0;
+    color: #ff6666;
+    transition: 0.4s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+    background: #ff6666;
+    transform: scale(1.2);
+    box-shadow: 0 0 25px #ff6666;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    background: #ff6666;
+    border-radius: 5rem;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700; /* Bold text */
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    text-transform: uppercase; /* Adds emphasis */
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(255, 102, 102, 0.5);
+}
+
+.btn:hover {
+    background: #ff9999;
+    transform: translateY(-5px) scale(1.05); /* Slight bounce and scale */
+    box-shadow: 0 0 25px rgba(255, 102, 102, 0.8), 0 0 40px rgba(255, 102, 102, 0.5); /* Enhanced glow */
+    animation: pulseGlow 1.5s infinite ease-in-out; /* Pulsing animation */
+}
+
+/* Pulse Glow Animation for Hire Me Button */
+@keyframes funkyType {
+    0% {
+        transform: scale(0.5) skewX(20deg);
+        opacity: 0;
+    }
+    20% {
+        transform: scale(1.2) skewX(-10deg);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(1) skewX(5deg);
+    }
+    60% {
+        transform: scale(1.1) skewX(-5deg);
+    }
+    80% {
+        transform: scale(1) skewX(0deg);
+    }
+    100% {
+        transform: scale(1) skewX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes funkyErase {
+    0% {
+        transform: scale(1) skewX(0deg);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.1) skewX(10deg);
+    }
+    40% {
+        transform: scale(0.9) skewX(-15deg);
+    }
+    60% {
+        transform: scale(1.2) skewX(20deg);
+    }
+    100% {
+        transform: scale(0.5) skewX(-20deg);
+        opacity: 0;
+    }
+}
+.typing-text span.typing {
+    animation: funkyType 0.8s ease-in-out forwards;
+}
+
+.typing-text span.erasing {
+    animation: funkyErase 0.6s ease-in-out forwards;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 995px) {
+    .home {
+        padding: 10rem 5%;
+        gap: 5rem;
+    }
+    .home-content h1 {
+        font-size: 5rem;
+    }
+    .btn {
+        padding: 1.2rem 3.5rem;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 5%;
+    }
+    .home-img img {
+        width: 60vw;
+        max-width: 300px;
+    }
+    .home-content h1 {
+        font-size: 4rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .home-content h3 {
+        font-size: 3.5rem;
+    }
+    .home-content p {
+        font-size: 1.6rem;
+    }
+    .btn {
+        padding: 1rem 3rem;
+        font-size: 1.6rem;
+    }
+}
+
+/* Skills Section */
+.skills {
+    padding: 15rem 10% 5rem;
+    text-align: center;
+}
+
+.skills h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+
+.skills h1 span {
+    color: #ff6666;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+}
+
+.skill-card {
+    background: rgba(30, 30, 30, 0.95);
+    padding: 4rem;
+    border-radius: 2rem;
+    border: 2px solid #ff6666;
+    transition: 0.4s ease;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(255, 102, 102, 0.6);
+}
+
+.skill-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+    transition: 0.5s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: rotateY(360deg);
+}
+
+.skill-card h3 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.skill-card p {
+    font-size: 1.8rem;
+    color: #d0d0d0;
+}
+
+/* Education Section */
+.education {
+    padding: 15rem 10% 5rem;
+    text-align: center;
+}
+
+.education h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+
+.education h1 span {
+    color: #ff6666;
+}
+
+.education-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+}
+
+.education-card {
+    background: rgba(30, 30, 30, 0.95);
+    padding: 4rem;
+    border-radius: 2rem;
+    border: 2px solid #ff6666;
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(255, 102, 102, 0.6);
+}
+
+.edu-icon {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    font-size: 10rem;
+    color: rgba(255, 102, 102, 0.15);
+    transition: 0.4s ease;
+}
+
+.education-card:hover .edu-icon {
+    color: rgba(255, 102, 102, 0.3);
+    transform: scale(1.1);
+}
+
+.education-card h3 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.education-card p {
+    font-size: 1.8rem;
+    color: #d0d0d0;
+    margin-bottom: 1rem;
+}
+
+.education-card p span {
+    color: #ff6666;
+    font-weight: 600;
+}
+
+/* Experience Section */
+.experience {
+    padding: 15rem 10% 5rem;
+    text-align: center;
+    background: linear-gradient(to bottom, #1e1e1e, #121212);
+}
+
+.experience h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+
+.experience h1 span {
+    color: #ff6666;
+}
+
+.experience-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+}
+
+.experience-card {
+    background: rgba(30, 30, 30, 0.95);
+    padding: 4rem;
+    border-radius: 2rem;
+    border: 2px solid #ff6666;
+    transition: 0.4s ease;
+    animation: slideUp 1s ease forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px rgba(255, 102, 102, 0.6);
+}
+
+.exp-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+    transition: transform 0.5s ease, filter 0.5s ease; /* Smooth transition for all effects */
+    filter: brightness(0) invert(1) hue-rotate(330deg); /* Neon pink effect */
+}
+
+.experience-card:hover .exp-icon {
+    transform: rotateY(360deg) scale(1.1); /* Flip horizontally + scale */
+    filter: brightness(1) hue-rotate(330deg); /* Enhanced neon pink on hover */
+    animation: flipPulse 1.5s infinite ease-in-out; /* Combined flip and pulse animation */
+}
+
+.experience-card h3 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.experience-card p {
+    font-size: 1.8rem;
+    color: #d0d0d0;
+    margin-bottom: 1rem;
+}
+
+.experience-card p span {
+    color: #ff6666;
+    font-weight: 600;
+}
+
+.experience-card a {
+    color: #ff6666;
+    transition: 0.3s ease;
+}
+
+.experience-card a:hover {
+    color: #ff9999;
+    text-decoration: underline;
+}
+
+/* Combined Flip and Pulse Animation */
+@keyframes flipPulse {
+    0% {
+        transform: rotateY(0deg) scale(1.1);
+    }
+    25% {
+        transform: rotateY(180deg) scale(1.15); /* Mid-flip with slight scale up */
+    }
+    50% {
+        transform: rotateY(360deg) scale(1.1); /* Complete flip */
+    }
+    75% {
+        transform: rotateY(180deg) scale(1.15); /* Reverse flip with scale */
+    }
+    100% {
+        transform: rotateY(0deg) scale(1.1); /* Back to start */
+    }
+}
+
+/* Additional Animation for Experience Icons on Hover */
+@keyframes pulse {
+    0% { transform: rotate(360deg) scale(1.1); }
+    50% { transform: rotate(360deg) scale(1.15); }
+    100% { transform: rotate(360deg) scale(1.1); }
+}
+/* Education Section */
+.education-card {
+    background: rgba(30, 30, 30, 0.95);
+    padding: 4rem;
+    border-radius: 2rem;
+    border: 2px solid #ff6666;
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(0.2s * var(--i));
+}
+
+.education-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 40px rgba(255, 102, 102, 0.6);
+}
+
+.edu-icon {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    font-size: 10rem;
+    color: rgba(255, 102, 102, 0.15);
+    transition: 0.5s ease;
+    transform: rotate(15deg);
+}
+
+.education-card:hover .edu-icon {
+    color: rgba(255, 102, 102, 0.5);
+    transform: rotate(0deg) scale(1.1);
+    text-shadow: 0 0 20px rgba(255, 102, 102, 0.8);
+}
+
+/* Additional Animation for Education Icons */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.education-card .edu-icon {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* Ensure data-index is used for animation delay */
+.education-card {
+    --i: attr(data-index);
+}
+
+.skill-card {
+    --i: attr(data-index);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 995px) {
+    .skills-container,
+    .education-container,
+    .experience-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .skills h1,
+    .education h1,
+    .experience h1 {
+        font-size: 5rem;
+    }
+
+    .home {
+        padding: 10rem 5%;
+        gap: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 5%;
+    }
+
+    .logo {
+        font-size: 2.5rem;
+    }
+
+    nav a {
+        font-size: 1.6rem;
+        margin-left: 2rem;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 5%;
+    }
+
+    .home-img img {
+        width: 60vw;
+        max-width: 300px;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-content h3 {
+        font-size: 3.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.6rem;
+    }
+
+    .skills-container,
+    .education-container,
+    .experience-container {
+        grid-template-columns: 1fr;
+    }
+}
